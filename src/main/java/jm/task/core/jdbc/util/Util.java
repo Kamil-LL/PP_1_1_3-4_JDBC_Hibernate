@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Util {
-    public static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/kamil_db";
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/mysql";
     public static final String DB_USERNAME = "root";
     public static final String DB_PASSWORD = "root";
 
