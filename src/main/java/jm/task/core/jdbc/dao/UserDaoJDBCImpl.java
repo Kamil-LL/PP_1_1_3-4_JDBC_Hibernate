@@ -11,14 +11,12 @@ public class UserDaoJDBCImpl implements UserDao {
     private static final Connection connection = Util.getConnection();
 
     public UserDaoJDBCImpl() {
-
     }
 
     @Override
     public void createUsersTable() {
         try (Statement stat = connection.createStatement()) {
-            stat.executeUpdate("CREATE TABLE IF NOT EXISTS users " +
-                    "(id BIGINT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(250), last_name VARCHAR(250), age INT)");
+            stat.executeUpdate("CREATE TABLE IF NOT EXISTS users " + "(id BIGINT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(250), last_name VARCHAR(250), age INT)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -56,8 +54,8 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     @Override
-    public List<User> getAllUsers() {
-        List<User> users = new ArrayList<>();
+    public List getAllUsers() {
+        List users = new ArrayList<>();
         try (ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM users")) {
             while (resultSet.next()) {
                 User user = new User(resultSet.getString("name"), resultSet.getString("last_name"), resultSet.getByte("age"));
